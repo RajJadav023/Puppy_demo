@@ -248,16 +248,6 @@ function HowItWorksPage() {
             <p className="info-handwriting">choose your way</p>
             <h1 id="two-ways-title">Two ways home</h1>
           </div>
-          <div className="two-ways-heading__choice">
-            <div aria-label="Choose how to meet your puppy" className="two-ways-switch" role="group">
-              <button aria-pressed={selectedWay === 'local'} className={selectedWay === 'local' ? 'is-selected' : ''} onClick={() => setSelectedWay('local')} type="button">
-                <strong>In Dubai</strong><span>meet in person</span>
-              </button>
-              <button aria-pressed={selectedWay === 'imported'} className={selectedWay === 'imported' ? 'is-selected' : ''} onClick={() => setSelectedWay('imported')} type="button">
-                <strong>Imported</strong><span>order upon request</span>
-              </button>
-            </div>
-          </div>
         </div>
         <div aria-live="polite" className={`two-ways-detail two-ways-detail--${selectedWay}`}>
           <div className="two-ways-detail__copy">
@@ -272,24 +262,34 @@ function HowItWorksPage() {
               {selectedWay === 'local' ? 'Plan a visit' : 'Ask about a puppy'} <ArrowRight aria-hidden="true" size={17} />
             </Link>
           </div>
-          <div aria-label={selectedWay === 'local' ? 'Illustration of the Dubai skyline' : 'Illustration of a puppy travel route to Dubai'} className="two-ways-art" role="img">
-            {selectedWay === 'local' ? (
-              <>
-                <span className="two-ways-art__sun" />
-                <svg aria-hidden="true" className="two-ways-art__city" viewBox="0 0 600 240" preserveAspectRatio="none">
-                  <path d="M18 230h564M40 230v-82h45v82m20 0V104h42v126m20 0v-63h44v63m41 0V110l29-19v139m25 0V61l16-18 16 18v169m26 0V111l30 18v101m25 0v-70h43v70m24 0v-105h42v105m22 0v-61h47v61" />
-                </svg>
-              </>
-            ) : (
-              <>
-                <svg aria-hidden="true" className="two-ways-art__route" viewBox="0 0 600 300" preserveAspectRatio="none">
-                  <path d="M75 255C175 55 400 45 520 245" />
-                </svg>
-                <Plane aria-hidden="true" className="two-ways-art__plane" size={66} />
-                <span className="two-ways-art__origin">Europe · Korea</span>
-                <span className="two-ways-art__destination">Dubai</span>
-              </>
-            )}
+          <div className="two-ways-art-column">
+            <div aria-label="Choose how to meet your puppy" className="two-ways-switch" role="group">
+              <button aria-pressed={selectedWay === 'local'} className={selectedWay === 'local' ? 'is-selected' : ''} onClick={() => setSelectedWay('local')} type="button">
+                <strong>In Dubai</strong><span>meet in person</span>
+              </button>
+              <button aria-pressed={selectedWay === 'imported'} className={selectedWay === 'imported' ? 'is-selected' : ''} onClick={() => setSelectedWay('imported')} type="button">
+                <strong>Imported</strong><span>order upon request</span>
+              </button>
+            </div>
+            <div aria-label={selectedWay === 'local' ? 'Illustration of the Dubai skyline' : 'Illustration of a puppy travel route to Dubai'} className="two-ways-art" role="img">
+              {selectedWay === 'local' ? (
+                <>
+                  <span className="two-ways-art__sun" />
+                  <svg aria-hidden="true" className="two-ways-art__city" viewBox="0 0 600 240" preserveAspectRatio="none">
+                    <path d="M18 230h564M40 230v-82h45v82m20 0V104h42v126m20 0v-63h44v63m41 0V110l29-19v139m25 0V61l16-18 16 18v169m26 0V111l30 18v101m25 0v-70h43v70m24 0v-105h42v105m22 0v-61h47v61" />
+                  </svg>
+                </>
+              ) : (
+                <>
+                  <svg aria-hidden="true" className="two-ways-art__route" viewBox="0 0 600 300" preserveAspectRatio="none">
+                    <path d="M75 255C175 55 400 45 520 245" />
+                  </svg>
+                  <Plane aria-hidden="true" className="two-ways-art__plane" size={66} />
+                  <span className="two-ways-art__origin">Europe · Korea</span>
+                  <span className="two-ways-art__destination">Dubai</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
         <div className="how-journey" id="journey">
